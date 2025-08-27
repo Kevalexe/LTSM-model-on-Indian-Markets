@@ -1,78 +1,88 @@
-# LSTM Model on Indian Markets
+# LSTM-Based Stock Price Prediction on Indian Markets
 
-Predicting stock prices of India’s top 15 companies using LSTM neural networks, combining historical closing prices with sentiment features.  
-Achieved ~98.2% accuracy on an 80/20 train-test split.
+This repository implements a deep learning pipeline to forecast stock prices of major Indian companies using **Long Short-Term Memory (LSTM)** networks.  
+The model integrates **historical stock prices** with **sentiment features** to improve predictive accuracy.  
 
----
-
-## Features
-- End-to-end pipeline: scraping → cleaning → preprocessing → model training → prediction  
-- Uses **closing prices + sentiment** as features  
-- LSTM model built with **TensorFlow/Keras**  
-- Evaluation metrics: RMSE, MAE, MAPE, Accuracy  
-- Visualization of predicted vs actual prices  
+📈 Reported performance: **~98.2% accuracy** (MAPE-based) on an 80/20 train-test split.
 
 ---
 
-## Project Structure
-├── scraper.py # Scrapes stock data
-├── Cleaner.py # Cleans raw CSVs
-├── DataLoader.py # Loads & preprocesses data
-├── Model.py # LSTM model, training, evaluation
-├── data_cleaned/ # Cleaned CSV files
+## 🔑 Key Features
+- **End-to-End Workflow**: data scraping → cleaning → preprocessing → model training → evaluation  
+- **Hybrid Input**: combines numerical market data with sentiment scores  
+- **Deep Learning Model**: LSTM architecture optimized for time series forecasting  
+- **Evaluation Metrics**: RMSE, MAE, MAPE, and accuracy percentage  
+- **Visualization**: plots predicted vs actual stock price trends  
+
+---
+
+## 📂 Project Structure
+├── scraper.py # Data collection script
+├── Cleaner.py # Cleans raw stock data into structured CSVs
+├── DataLoader.py # Loads and preprocesses time-series sequences
+├── Model.py # Defines, trains, and evaluates the LSTM model
+├── data_cleaned/ # Repository of cleaned CSV files
+└── README.md
 
 yaml
 Copy code
 
 ---
 
-## Installation
+## ⚙️ Installation
+Clone the repository and install dependencies:
 ```bash
 git clone https://github.com/Kevalexe/LTSM-model-on-Indian-Markets.git
 cd LTSM-model-on-Indian-Markets
 pip install -r requirements.txt
-(requirements: pandas, numpy, scikit-learn, tensorflow, matplotlib, vaderSentiment)
+Dependencies:
 
-Usage
-Scrape stock data:
+pandas, numpy, scikit-learn
+
+tensorflow / keras
+
+matplotlib
+
+vaderSentiment
+
+🚀 Usage
+Scrape stock data
 
 bash
 Copy code
 python scraper.py
-Clean scraped data:
+Clean raw data
 
 bash
 Copy code
 python Cleaner.py
-Train & evaluate model:
+Run model training & evaluation
 
 bash
 Copy code
 python Model.py
 Outputs:
 
-RMSE, MAE, MAPE, Accuracy
+Evaluation metrics (RMSE, MAE, MAPE, Accuracy)
 
-Plot of actual vs predicted prices
+Visualization: predicted vs actual closing prices
 
-Results
-Reported accuracy: ~98.2% (based on MAPE)
+📊 Results
+Accuracy: ~98.2% (based on MAPE)
 
-Works on 15 Indian companies’ stock data
+Dataset: 15 leading Indian companies
 
-Future Work
-Automate sentiment scraping from news/Twitter
+Visualization: Actual vs Predicted stock trends show strong overlap
 
-Add interactive UI (Streamlit / Tkinter) for live predictions
+🔮 Future Improvements
+Automate sentiment scraping from financial news/Twitter feeds
 
-Explore GRU / BiLSTM for performance comparison
+Add a Streamlit / Tkinter UI to allow users to select companies and visualize forecasts interactively
 
-Author
-Keval – Student, LDCE Ahmedabad
+Compare against alternative architectures (GRU, BiLSTM, Transformer-based models)
 
-yaml
-Copy code
+Extend to multi-stock portfolio forecasting
 
----
-
-Want me to also generate a **`requirements.txt`** for you so users can install 
+👤 Author
+Keval Mistry
+Student, LDCE Ahmedabad
