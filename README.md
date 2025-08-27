@@ -1,132 +1,78 @@
-LSTM Model for Indian Market Stock Prediction
+# LSTM Model on Indian Markets
 
-Predicting stock prices of India’s top 15 companies using LSTM neural networks, with sentiment features, clean data pipelines, and a modular architecture. Achieved ~98.2% accuracy on an 80/20 train-test split.
+Predicting stock prices of India’s top 15 companies using LSTM neural networks, combining historical closing prices with sentiment features.  
+Achieved ~98.2% accuracy on an 80/20 train-test split.
 
-Table of Contents
+---
 
-Project Overview
+## Features
+- End-to-end pipeline: scraping → cleaning → preprocessing → model training → prediction  
+- Uses **closing prices + sentiment** as features  
+- LSTM model built with **TensorFlow/Keras**  
+- Evaluation metrics: RMSE, MAE, MAPE, Accuracy  
+- Visualization of predicted vs actual prices  
 
-Features
+---
 
-Project Structure
+## Project Structure
+├── scraper.py # Scrapes stock data
+├── Cleaner.py # Cleans raw CSVs
+├── DataLoader.py # Loads & preprocesses data
+├── Model.py # LSTM model, training, evaluation
+├── data_cleaned/ # Cleaned CSV files
 
-Installation & Setup
+yaml
+Copy code
 
-How to Run
+---
 
-Results & Accuracy
-
-Future Enhancements
-
-About
-
-Project Overview
-
-This project aims to forecast next-day closing stock prices for India's top 15 companies using a Long Short-Term Memory (LSTM) network. The workflow includes:
-
-Scraping stock data via scraper.py
-
-Cleaning and normalizing data through Cleaner.py
-
-Preprocessing features (Close price + sentiment) and preparing sequences using DataLoader.py
-
-Training and evaluating the LSTM model with Model.py
-
-Visualization of predictions and evaluation metrics using matplotlib
-
-Features
-
-End-to-end stock prediction pipeline
-
-Data scraping → cleaning → sequence generation → model → prediction
-
-Multi-feature input: Combines historical closing prices and sentiment scores for improved forecasting.
-
-Model evaluation: Uses RMSE, MAE, MAPE metrics, with visualizations of predicted vs. actual prices.
-
-High reported accuracy: Around 98.2% accuracy over an 80/20 train-test split, according to MAPE-based calculation.
-
-Project Structure
-LTSM-model-on-Indian-Markets/
-│
-├── scraper.py         # Downloads historical stock data for 15 companies
-├── Cleaner.py         # Cleans raw CSVs—removes NaNs, keeps numeric columns
-├── DataLoader.py      # Loads cleaned data, adds sentiment, scales, prepares sequences
-├── Model.py           # Builds, trains, evaluates, and plots the LSTM model
-├── data_cleaned/      # Cleaned CSV files for each company
-└── results/           # (Optional) Graphs and metrics for each stock
-
-Installation & Setup
-
-Clone the repo:
-
+## Installation
+```bash
 git clone https://github.com/Kevalexe/LTSM-model-on-Indian-Markets.git
 cd LTSM-model-on-Indian-Markets
+pip install -r requirements.txt
+(requirements: pandas, numpy, scikit-learn, tensorflow, matplotlib, vaderSentiment)
 
-
-Install Python dependencies:
-
-pip install pandas numpy scikit-learn tensorflow matplotlib vaderSentiment
-
-
-Ensure you have a stable internet connection for scraping.
-
-How to Run
-
+Usage
 Scrape stock data:
 
+bash
+Copy code
 python scraper.py
+Clean scraped data:
 
-
-Clean raw data:
-
+bash
+Copy code
 python Cleaner.py
+Train & evaluate model:
 
-
-Load and preprocess:
-This is handled internally when running the model.
-
-Train and evaluate:
-
+bash
+Copy code
 python Model.py
+Outputs:
 
+RMSE, MAE, MAPE, Accuracy
 
-Once complete, the script outputs:
+Plot of actual vs predicted prices
 
-RMSE, MAE, MAPE, Approx. Accuracy (%)
+Results
+Reported accuracy: ~98.2% (based on MAPE)
 
-A plot of actual vs. predicted closing prices
+Works on 15 Indian companies’ stock data
 
-Results & Accuracy
+Future Work
+Automate sentiment scraping from news/Twitter
 
-Evaluation metrics are printed at the end of the model run. Based on your output logic:
+Add interactive UI (Streamlit / Tkinter) for live predictions
 
-MAPE (Mean Absolute Percentage Error) is computed, and Accuracy (%) = 100 – MAPE
+Explore GRU / BiLSTM for performance comparison
 
-The model currently reports approximately 98.2% accuracy on the 80/20 train-test split.
+Author
+Keval – Student, LDCE Ahmedabad
 
-Future Enhancements
+yaml
+Copy code
 
-Automate sentiment scraping from financial news or Twitter.
+---
 
-Add interactive UI using Streamlit or desktop app for live predictions.
-
-Train and compare models across multiple stocks in batch pipelines.
-
-Introduce hyperparameter tuning, dropout adjustments, or alternative architectures like GRU or BiLSTM.
-
-About
-
-Created by Keval, this project showcases:
-
-Full-stack data engineering and machine learning proficiency
-
-Integration of sentiment analysis into time series forecasting
-
-Strong modular Python code organization
-
-Clear documentation and visual results
-
-Feel free to explore, improve, or reach out for collaboration!
-
-Let me know if you want enhancements to this README or help automating docs like plots or metrics inclusion!
+Want me to also generate a **`requirements.txt`** for you so users can install 
