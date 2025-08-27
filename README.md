@@ -1,88 +1,52 @@
-# LSTM-Based Stock Price Prediction on Indian Markets
+# LSTM Model on Indian Markets
 
-This repository implements a deep learning pipeline to forecast stock prices of major Indian companies using **Long Short-Term Memory (LSTM)** networks.  
-The model integrates **historical stock prices** with **sentiment features** to improve predictive accuracy.  
+A deep learning-based LSTM model built in Python for predicting trends in Indian stock markets. The project focuses on historical stock price data analysis and provides a framework for future improvements, including advanced feature integration and interactive visualizations.
 
-📈 Reported performance: **~98.2% accuracy** (MAPE-based) on an 80/20 train-test split.
+## Table of Contents
+- [Description](#description)  
+- [Features](#features)  
+- [Getting Started](#getting-started)  
+  - [Prerequisites](#prerequisites)  
+  - [Installation](#installation)  
+  - [Running the App](#running-the-app)  
+- [Planned Work](#planned-work)  
+- [Contributing](#contributing)  
+- [License](#license)  
 
----
+## Description
+This project leverages a Long Short-Term Memory (LSTM) neural network to analyze and predict trends in Indian stock markets. Using historical price data, the model forecasts short-term price movements to assist in data-driven decision-making. Designed to be modular and extensible, the project aims to incorporate real-time market data, visualizations, and performance evaluation metrics in future updates.
 
-## 🔑 Key Features
-- **End-to-End Workflow**: data scraping → cleaning → preprocessing → model training → evaluation  
-- **Hybrid Input**: combines numerical market data with sentiment scores  
-- **Deep Learning Model**: LSTM architecture optimized for time series forecasting  
-- **Evaluation Metrics**: RMSE, MAE, MAPE, and accuracy percentage  
-- **Visualization**: plots predicted vs actual stock price trends  
+## Features
+- LSTM-based prediction model for stock prices  
+- Data preprocessing and normalization  
+- Training, validation, and testing pipeline  
+- Modular Python implementation for easy extensions  
+- Intended future features:  
+  - Real-time data integration  
+  - Interactive web-based visualization of predictions  
+  - Automated portfolio suggestions  
 
----
+## Getting Started
 
-## 📂 Project Structure
-├── scraper.py # Data collection script
-├── Cleaner.py # Cleans raw stock data into structured CSVs
-├── DataLoader.py # Loads and preprocesses time-series sequences
-├── Model.py # Defines, trains, and evaluates the LSTM model
-├── data_cleaned/ # Repository of cleaned CSV files
-└── README.md
+### Prerequisites
+- Python 3.8 or higher  
+- Required Python libraries: `numpy`, `pandas`, `tensorflow`, `matplotlib`, `scikit-learn`  
+- Jupyter Notebook (optional, for experimentation)  
 
-yaml
-Copy code
-
----
-
-## ⚙️ Installation
+### Installation
 Clone the repository and install dependencies:
-```bash
+
+``bash
 git clone https://github.com/Kevalexe/LTSM-model-on-Indian-Markets.git
 cd LTSM-model-on-Indian-Markets
 pip install -r requirements.txt
-Dependencies:
+bash``
 
-pandas, numpy, scikit-learn
+### Running the App
+Prepare your dataset in the data/ folder (CSV format recommended).
+Open main.py or LSTM_model.ipynb to configure model parameters.
 
-tensorflow / keras
+### Train the model:
 
-matplotlib
-
-vaderSentiment
-
-🚀 Usage
-Scrape stock data
-
-bash
-Copy code
-python scraper.py
-Clean raw data
-
-bash
-Copy code
-python Cleaner.py
-Run model training & evaluation
-
-bash
-Copy code
-python Model.py
-Outputs:
-
-Evaluation metrics (RMSE, MAE, MAPE, Accuracy)
-
-Visualization: predicted vs actual closing prices
-
-📊 Results
-Accuracy: ~98.2% (based on MAPE)
-
-Dataset: 15 leading Indian companies
-
-Visualization: Actual vs Predicted stock trends show strong overlap
-
-🔮 Future Improvements
-Automate sentiment scraping from financial news/Twitter feeds
-
-Add a Streamlit / Tkinter UI to allow users to select companies and visualize forecasts interactively
-
-Compare against alternative architectures (GRU, BiLSTM, Transformer-based models)
-
-Extend to multi-stock portfolio forecasting
-
-👤 Author
-Keval Mistry
-Student, LDCE Ahmedabad
+```bash
+python main.py
