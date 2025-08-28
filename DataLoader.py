@@ -9,7 +9,7 @@ def load_data(file_path, sequence_length=60):
     df['Close'] = pd.to_numeric(df['Close'], errors='coerce')
     df = df.dropna(subset=['Close']).reset_index(drop=True)
 
-    # Example sentiment generation (replace with real news)
+    # Example sentiment generation (replace with real news if available)
     headlines = [
         "Reliance posts record quarterly profit",
         "Reliance faces regulatory hurdles in new project",
@@ -31,7 +31,7 @@ def load_data(file_path, sequence_length=60):
     x, y = [], []
     for i in range(sequence_length, len(scaled_data)):
         x.append(scaled_data[i-sequence_length:i])
-        y.append(scaled_data[i, 0])  # Close only
+        y.append(scaled_data[i, 0])  # predicting Close only
 
     x, y = np.array(x), np.array(y)
 
@@ -40,4 +40,5 @@ def load_data(file_path, sequence_length=60):
     x_train, x_test = x[:split], x[split:]
     y_train, y_test = y[:split], y[split:]
 
-    return x_train, y_train, x_test, y_test, scaler
+
+    return  x_train, y_train, x_test, y_test, scaler
