@@ -1,52 +1,97 @@
-# LSTM Model on Indian Markets
+# LSTM Model on Indian Stock Markets 🇮🇳📈
 
-A deep learning-based LSTM model built in Python for predicting trends in Indian stock markets. The project focuses on historical stock price data analysis and provides a framework for future improvements, including advanced feature integration and interactive visualizations.
+A Python project implementing a Long Short-Term Memory (LSTM) neural network to predict next-day closing prices of Indian stocks (NSE/BSE) using historical stock prices and sentiment analysis from news headlines.
 
 ## Table of Contents
 - [Description](#description)  
 - [Features](#features)  
+- [Folder Structure](#folder-structure)  
 - [Getting Started](#getting-started)  
   - [Prerequisites](#prerequisites)  
   - [Installation](#installation)  
   - [Running the App](#running-the-app)  
+- [Metrics](#metrics)  
 - [Planned Work](#planned-work)  
-- [Contributing](#contributing)  
-- [License](#license)  
+- [Author](#author)  
 
 ## Description
-This project leverages a Long Short-Term Memory (LSTM) neural network to analyze and predict trends in Indian stock markets. Using historical price data, the model forecasts short-term price movements to assist in data-driven decision-making. Designed to be modular and extensible, the project aims to incorporate real-time market data, visualizations, and performance evaluation metrics in future updates.
+This project leverages an LSTM neural network to analyze and predict trends in Indian stock markets. Using historical stock price data and sentiment analysis from news headlines, the model forecasts short-term price movements. The project is modular and designed for future expansions such as real-time market data, advanced visualizations, and multiple stock pipelines.
 
 ## Features
-- LSTM-based prediction model for stock prices  
-- Data preprocessing and normalization  
-- Training, validation, and testing pipeline  
-- Modular Python implementation for easy extensions  
-- Intended future features:  
-  - Real-time data integration  
-  - Interactive web-based visualization of predictions  
-  - Automated portfolio suggestions  
+- LSTM-based prediction for next-day closing prices  
+- Data preprocessing, scaling, and sequence creation  
+- Sentiment analysis integration using VADER  
+- CLI interface to select which stock to train  
+- Computes evaluation metrics: RMSE, MAE, R² Score, MAPE, and Accuracy (%)  
+- Visualizes predicted vs actual prices using matplotlib  
+- Modular structure for easy extensions and future improvements  
+
+## Folder Structure
+.
+├── CLI.py # Command-line interface to choose stock CSV
+├── DataLoader.py # Data preprocessing: scaling, sequences, sentiment
+├── Model.py # LSTM model, training, evaluation, plotting
+├── data_cleaned/ # Folder containing cleaned stock CSVs
+├── README.md # Project documentation
+└── requirements.txt # Required Python packages
+
+markdown
+Copy code
 
 ## Getting Started
 
 ### Prerequisites
-- Python 3.8 or higher  
-- Required Python libraries: `numpy`, `pandas`, `tensorflow`, `matplotlib`, `scikit-learn`  
+- Python ≥ 3.8  
+- Libraries: `numpy`, `pandas`, `tensorflow`, `keras`, `matplotlib`, `scikit-learn`, `vaderSentiment`  
 - Jupyter Notebook (optional, for experimentation)  
 
 ### Installation
 Clone the repository and install dependencies:
 
-``bash
+```bash
 git clone https://github.com/Kevalexe/LTSM-model-on-Indian-Markets.git
 cd LTSM-model-on-Indian-Markets
-pip install -r requirements.txt
-bash``
+Running the App
+Place your cleaned stock CSV files inside the data_cleaned/ folder. Each CSV must have at least a Close column.
+```
+Run the CLI:
 
-### Running the App
-Prepare your dataset in the data/ folder (CSV format recommended).
-Open main.py or LSTM_model.ipynb to configure model parameters.
 
-### Train the model:
 
-```bash
-python main.py
+python CLI.py
+Select the stock you want to train (enter the number). The model will train, evaluate, and display a plot of predicted vs actual prices.
+
+Example output:
+
+
+📂 Available stock datasets:
+1. RELIANCE.csv
+2. TCS.csv
+3. INFY.csv
+
+👉 Enter the number of the stock you want to train on: 1
+📈 Training model for RELIANCE...
+Model Accuracy: 92.45%
+Metrics
+RMSE: Root Mean Squared Error
+
+MAE: Mean Absolute Error
+
+R² Score: Coefficient of determination
+
+MAPE: Mean Absolute Percentage Error
+
+Accuracy (%): 100 - MAPE
+
+Planned Work
+Replace sample headlines with real-time news data
+
+Add GUI interface for stock selection and interactive visualization
+
+Save trained models for faster inference
+
+Expand dataset to all NSE/BSE listed stocks
+
+Author
+Keval – Student & aspiring Quant/AI enthusiast
+GitHub: Kevalexe
