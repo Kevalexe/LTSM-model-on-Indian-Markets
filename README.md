@@ -27,7 +27,7 @@ This project leverages an LSTM neural network to analyze and predict trends in I
 - Modular structure for easy extensions and future improvements  
 
 ## Folder Structure
-.
+
 ├── CLI.py # Command-line interface to choose stock CSV
 ├── DataLoader.py # Data preprocessing: scaling, sequences, sentiment
 ├── Model.py # LSTM model, training, evaluation, plotting
@@ -35,8 +35,7 @@ This project leverages an LSTM neural network to analyze and predict trends in I
 ├── README.md # Project documentation
 └── requirements.txt # Required Python packages
 
-markdown
-Copy code
+
 
 ## Getting Started
 
